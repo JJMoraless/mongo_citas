@@ -27,6 +27,9 @@ await db.createCollection("genero", {
       required: ["nombre", "abreviatura"],
       additionalProperties: false,
       properties: {
+        _id: {
+          bsonType: "objectId",
+        },
         nombre: {
           bsonType: ["string", "null"],
           description: "El nombre de la bodega",
@@ -47,7 +50,6 @@ await db.createCollection("usuario", {
       bsonType: "object",
       required: [
         "nombre",
-        "abreviatura",
         "segundo_nombre",
         "primer_apellido",
         "segundo_apellido",
@@ -60,6 +62,9 @@ await db.createCollection("usuario", {
       ],
       additionalProperties: false,
       properties: {
+        _id: {
+          bsonType: "objectId",
+        },
         nombre: {
           bsonType: ["string", "null"],
           description: "El nombre de la bodega",
@@ -122,11 +127,11 @@ await db.createCollection("medico", {
           description: "Nombre completo del médico",
         },
         id_consultorio: {
-          bsonType: "string",
+          bsonType: "objectId",
           description: "Número de consultorio del médico",
         },
         id_especialidad: {
-          bsonType: "string",
+          bsonType: "objectId",
           description: "Especialidad médica del médico",
         },
       },
@@ -142,6 +147,9 @@ await db.createCollection("cita", {
       required: ["fecha", "id_estado_cita", "id_medico", "id_usuario"],
       additionalProperties: false,
       properties: {
+        _id: {
+          bsonType: "objectId",
+        },
         fecha: {
           bsonType: ["string", "date", "null"],
           description: "Fecha de la cita",
@@ -151,7 +159,7 @@ await db.createCollection("cita", {
           description: "ID del estado de la cita",
         },
         id_medico: {
-          bsonType: ["string", "null"],
+          bsonType: ["int", "null"],
           description: "ID del médico asignado a la cita",
         },
         id_usuario: {
@@ -171,6 +179,9 @@ await db.createCollection("estado_cita", {
       required: ["nombre"],
       additionalProperties: false,
       properties: {
+        _id: {
+          bsonType: "objectId",
+        },
         nombre: {
           bsonType: "string",
           description: "Nombre del estado de la cita",
@@ -188,6 +199,9 @@ await db.createCollection("especialidad", {
       required: ["nombre"],
       additionalProperties: false,
       properties: {
+        _id: {
+          bsonType: "objectId",
+        },
         nombre: {
           bsonType: "string",
           description: "Nombre del estado de la especialidad",
@@ -205,6 +219,9 @@ await db.createCollection("consultorio", {
       required: ["nombre"],
       additionalProperties: false,
       properties: {
+        _id: {
+          bsonType: "objectId",
+        },
         nombre: {
           bsonType: "string",
           description: "Nombre del estado de la consultorio",
